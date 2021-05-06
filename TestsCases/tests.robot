@@ -1,6 +1,7 @@
 *** Settings ***
 Library   SeleniumLibrary
 Resource   ../Resources/SiteKeywords.robot
+Suite Setup   Prepare Env
 
 *** Variables ***
 ${Url}   http://automationpractice.com/
