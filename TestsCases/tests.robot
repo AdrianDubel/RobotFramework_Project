@@ -35,5 +35,19 @@ TC_03 - Sparwdzenie czy użytkownik jest wylogowany
     Wpisz adres email   ${email_field}   ${user_email}
     Wpisz haslo   ${pass_field}   ${user_pass}
     Nacisnij przycisk Sign In
+    Nacisnij przycisk Sign Out
+    Sleep    5
+    Sprawdz czy uzytkownik zostal wylogowany
+    [Teardown]   Zamknij przegladarke
+
+
+TC_04 - Rejestracja nowego uzytkownika
+    [Setup]   Otwórz przegladarke   ${Url}   ${Browser}
+    Przejdz do strony rejestracji
+    Wpisz adres email nowego uzytkownika
+    Potwierdz rejestracje
+    Sprawdz czy nowy uzytkownik zostal zarejestrowany
+
+
 
 

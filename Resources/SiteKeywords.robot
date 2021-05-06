@@ -1,8 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
 Variables   ../PageObjects/Locators.py
+Variables   ../PageObjects/randommail.py
 
 *** Keywords ***
+Prepare Env
+   Set Screenshot Directory    Screenshots
 
 Otwórz przegladarke
    [Arguments]   ${Url}   ${Browser}
@@ -11,7 +14,19 @@ Otwórz przegladarke
 
 Przejdz do strony logowania
    Click Element   ${login_btn}
-   
+
+Przejdz do strony rejestracji
+   Click Element   ${login_btn}
+
+Wpisz adres email nowego uzytkownika
+  Input Text    ${email_register}   ${mail}
+
+Potwierdz rejestracje
+   Click Element    ${submit_register}
+
+Sprawdz czy nowy uzytkownik zostal zarejestrowany
+
+
 Wpisz adres email
    [Arguments]   ${email_field}    ${user_email}
    Input Text   ${email_field}   ${user_email}
@@ -28,7 +43,9 @@ Nacisnij przycisk Sign In
    Click Button    ${submit_login_btn}
 
 Sprawdz czy uzytkownik jest zalogowany
-   Element Should Contain   css:nav > div:nth-of-type(1)    Adam Adam
+   Element Should Contain   ${user_login_name}    Adam Adam
+   Element Should Be Visible    ${my_account}
+   Element Should Contain   ${my_account}   MY ACCOUNT
 
 Sprawdz czy komunikat o blednych danych zostal wyswietlony
    Wait Until Element Is Visible    ${alert}
@@ -37,3 +54,10 @@ Sprawdz czy komunikat o blednych danych zostal wyswietlony
 
 Zamknij przegladarke
    Close Browser
+   
+Nacisnij przycisk Sign Out
+   Wait Until Element Is Visible    ${sign_out}
+   Click Element   ${sign_out}
+
+Sprawdz czy uzytkownik zostal wylogowany
+    Element Should Contain    ${my_account}    AUTHENTICATION
