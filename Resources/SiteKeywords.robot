@@ -3,6 +3,13 @@ Library    SeleniumLibrary
 Variables   ../PageObjects/Locators.py
 Variables   ../PageObjects/randommail.py
 
+*** Variables ***
+${Url}   http://automationpractice.com/
+${Browser}   chrome
+${user_email}   user+test@example.com
+${user_pass}   pas123456
+${wrong_user_email}   wrong@ee.pl
+
 *** Keywords ***
 Prepare Env
    Set Screenshot Directory    Screenshots
@@ -24,15 +31,13 @@ Wpisz adres email nowego uzytkownika
 Potwierdz rejestracje
    Click Element    ${submit_register}
 
-Sprawdz czy nowy uzytkownik zostal zarejestrowany
-
-
 Wpisz adres email
    [Arguments]   ${email_field}    ${user_email}
    Input Text   ${email_field}   ${user_email}
 
 Wpisz bledny adres email
    [Arguments]   ${email_field}    ${wrong_user_email}
+   Wait Until Element Is Visible    ${email_field}
    Input Text   ${email_field}   ${wrong_user_email}
 
 Wpisz haslo
@@ -58,6 +63,24 @@ Zamknij przegladarke
 Nacisnij przycisk Sign Out
    Wait Until Element Is Visible    ${sign_out}
    Click Element   ${sign_out}
+   Sleep    5
 
 Sprawdz czy uzytkownik zostal wylogowany
     Element Should Contain    ${my_account}    AUTHENTICATION
+
+Kliknij Register
+   Wait Until Element Is Visible    ${register_btn}
+   Click Element    ${register_btn}
+
+Sprawdz czy pojawił sie error
+   Wait Until Element Is Visible   ${alert}
+   Element Should Be Visible    ${alert}
+   
+Kliknij forgot password
+    Wait Until Element Is Visible   ${forgot_pass}
+    Click Element    ${forgot_pass}
+
+Potwierdz odzyskanie hasla
+    Click Element    ${retrive_pass}
+
+
