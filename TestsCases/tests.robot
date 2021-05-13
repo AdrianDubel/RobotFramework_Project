@@ -29,7 +29,7 @@ TC_02 - Logowanie z nieprawidlowa nazwa użytkownika
     Sprawdz czy komunikat o blednych danych zostal wyswietlony
     [Teardown]   Zamknij przegladarke
 
-TC_03 - Sparwdzenie czy użytkownik jest wylogowany
+TC_03 - Sprawdzenie czy użytkownik jest wylogowany
     [Setup]   Otwórz przegladarke   ${Url}   ${Browser}
     Przejdz do strony logowania
     Wpisz adres email   ${email_field}   ${user_email}
