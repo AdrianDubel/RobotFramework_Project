@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.0.1 (Python 3.8.5 on linux)" generated="20210512 15:14:10.684" rpa="false" schemaversion="2">
+<robot generator="Robot 4.0.1 (Python 3.8.5 on linux)" generated="20210513 10:09:53.595" rpa="false" schemaversion="2">
 <suite id="s1" name="Tests" source="/home/dev/PycharmProjects/Robot/TestsCases/tests.robot">
 <kw name="Prepare Env" library="SiteKeywords" type="SETUP">
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>Screenshots</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20210512 15:14:10.836" endtime="20210512 15:14:10.837"/>
+<status status="PASS" starttime="20210513 10:09:53.738" endtime="20210513 10:09:53.739"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:10.836" endtime="20210512 15:14:10.837"/>
+<status status="PASS" starttime="20210513 10:09:53.738" endtime="20210513 10:09:53.739"/>
 </kw>
-<test id="s1-t1" name="TC_05 - Sprawdzenie funkcjonalnosci &quot;Forgot your password?&quot; dla niezarejestrowanego uzytkownika">
+<test id="s1-t1" name="TC_01 - Logowanie z poprawnymi danymi">
 <kw name="Otwórz przegladarke" library="SiteKeywords" type="SETUP">
 <arg>${Url}</arg>
 <arg>${Browser}</arg>
@@ -17,37 +17,114 @@
 <arg>${Url}</arg>
 <arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20210512 15:14:10.838" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
-<status status="PASS" starttime="20210512 15:14:10.838" endtime="20210512 15:14:16.965"/>
+<msg timestamp="20210513 10:09:53.740" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210513 10:09:53.740" endtime="20210513 10:09:59.574"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210512 15:14:16.965" endtime="20210512 15:14:17.080"/>
+<status status="PASS" starttime="20210513 10:09:59.574" endtime="20210513 10:09:59.678"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:10.837" endtime="20210512 15:14:17.080"/>
+<status status="PASS" starttime="20210513 10:09:53.739" endtime="20210513 10:09:59.678"/>
 </kw>
-<kw name="Przejdz do strony rejestracji" library="SiteKeywords">
+<kw name="Przejdz do strony logowania" library="SiteKeywords">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${login_btn}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210512 15:14:17.081" level="INFO">Clicking element 'css:.login'.</msg>
-<status status="PASS" starttime="20210512 15:14:17.081" endtime="20210512 15:14:18.003"/>
+<msg timestamp="20210513 10:09:59.679" level="INFO">Clicking element 'css:.login'.</msg>
+<status status="PASS" starttime="20210513 10:09:59.678" endtime="20210513 10:10:04.003"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:17.080" endtime="20210512 15:14:18.004"/>
+<status status="PASS" starttime="20210513 10:09:59.678" endtime="20210513 10:10:04.003"/>
 </kw>
-<kw name="Kliknij forgot password" library="SiteKeywords">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${forgot_pass}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210512 15:14:18.004" endtime="20210512 15:14:18.647"/>
+<kw name="Wpisz adres email" library="SiteKeywords">
+<arg>${email_field}</arg>
+<arg>${user_email}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<arg>${user_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:04.004" level="INFO">Typing text 'user+test@example.com' into text field 'css:#email'.</msg>
+<status status="PASS" starttime="20210513 10:10:04.004" endtime="20210513 10:10:04.084"/>
 </kw>
+<status status="PASS" starttime="20210513 10:10:04.004" endtime="20210513 10:10:04.084"/>
+</kw>
+<kw name="Wpisz haslo" library="SiteKeywords">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:04.085" level="INFO">Typing text 'pas123456' into text field 'css:#passwd'.</msg>
+<status status="PASS" starttime="20210513 10:10:04.084" endtime="20210513 10:10:04.153"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:04.084" endtime="20210513 10:10:04.153"/>
+</kw>
+<kw name="Nacisnij przycisk Sign In" library="SiteKeywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${submit_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:04.154" level="INFO">Clicking button 'css:#SubmitLogin'.</msg>
+<status status="PASS" starttime="20210513 10:10:04.154" endtime="20210513 10:10:06.018"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:04.153" endtime="20210513 10:10:06.018"/>
+</kw>
+<kw name="Sprawdz czy uzytkownik jest zalogowany" library="SiteKeywords">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${user_login_name}</arg>
+<arg>Adam Adam</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20210513 10:10:06.042" level="INFO">Element 'css:nav &gt; div:nth-of-type(1)' contains text 'Adam Adam'.</msg>
+<status status="PASS" starttime="20210513 10:10:06.018" endtime="20210513 10:10:06.042"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${my_account}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210513 10:10:06.060" level="INFO">Element 'css:.page-heading' is displayed.</msg>
+<status status="PASS" starttime="20210513 10:10:06.042" endtime="20210513 10:10:06.060"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${my_account}</arg>
+<arg>MY ACCOUNT</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20210513 10:10:06.073" level="INFO">Element 'css:.page-heading' contains text 'MY ACCOUNT'.</msg>
+<status status="PASS" starttime="20210513 10:10:06.060" endtime="20210513 10:10:06.073"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:06.018" endtime="20210513 10:10:06.073"/>
+</kw>
+<kw name="Zamknij przegladarke" library="SiteKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210513 10:10:06.074" endtime="20210513 10:10:06.131"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:06.074" endtime="20210513 10:10:06.131"/>
+</kw>
+<status status="PASS" starttime="20210513 10:09:53.739" endtime="20210513 10:10:06.131"/>
+</test>
+<test id="s1-t2" name="TC_02 - Logowanie z nieprawidlowa nazwa użytkownika">
+<kw name="Otwórz przegladarke" library="SiteKeywords" type="SETUP">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210513 10:10:06.132" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210513 10:10:06.132" endtime="20210513 10:10:10.664"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210513 10:10:10.664" endtime="20210513 10:10:10.767"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:06.132" endtime="20210513 10:10:10.768"/>
+</kw>
+<kw name="Przejdz do strony logowania" library="SiteKeywords">
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${forgot_pass}</arg>
+<arg>${login_btn}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210512 15:14:18.648" level="INFO">Clicking element 'css:[title='Recover your forgotten password']'.</msg>
-<status status="PASS" starttime="20210512 15:14:18.647" endtime="20210512 15:14:19.353"/>
+<msg timestamp="20210513 10:10:10.769" level="INFO">Clicking element 'css:.login'.</msg>
+<status status="PASS" starttime="20210513 10:10:10.768" endtime="20210513 10:10:13.556"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:18.004" endtime="20210512 15:14:19.353"/>
+<status status="PASS" starttime="20210513 10:10:10.768" endtime="20210513 10:10:13.556"/>
 </kw>
 <kw name="Wpisz bledny adres email" library="SiteKeywords">
 <arg>${email_field}</arg>
@@ -55,52 +132,347 @@
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${email_field}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210512 15:14:19.354" endtime="20210512 15:14:19.378"/>
+<status status="PASS" starttime="20210513 10:10:13.556" endtime="20210513 10:10:13.582"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${email_field}</arg>
 <arg>${wrong_user_email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210512 15:14:19.378" level="INFO">Typing text 'wrong@ee.pl' into text field 'css:#email'.</msg>
-<status status="PASS" starttime="20210512 15:14:19.378" endtime="20210512 15:14:19.439"/>
+<msg timestamp="20210513 10:10:13.582" level="INFO">Typing text 'wrong@ee.pl' into text field 'css:#email'.</msg>
+<status status="PASS" starttime="20210513 10:10:13.582" endtime="20210513 10:10:13.643"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:19.353" endtime="20210512 15:14:19.439"/>
+<status status="PASS" starttime="20210513 10:10:13.556" endtime="20210513 10:10:13.643"/>
 </kw>
-<kw name="Potwierdz odzyskanie hasla" library="SiteKeywords">
+<kw name="Wpisz haslo" library="SiteKeywords">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:13.644" level="INFO">Typing text 'pas123456' into text field 'css:#passwd'.</msg>
+<status status="PASS" starttime="20210513 10:10:13.643" endtime="20210513 10:10:13.713"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:13.643" endtime="20210513 10:10:13.713"/>
+</kw>
+<kw name="Nacisnij przycisk Sign In" library="SiteKeywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${submit_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:13.714" level="INFO">Clicking button 'css:#SubmitLogin'.</msg>
+<status status="PASS" starttime="20210513 10:10:13.713" endtime="20210513 10:10:14.658"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:13.713" endtime="20210513 10:10:14.659"/>
+</kw>
+<kw name="Sprawdz czy komunikat o blednych danych zostal wyswietlony" library="SiteKeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:10:14.659" endtime="20210513 10:10:14.680"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${alert}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210513 10:10:14.692" level="INFO">Element 'css:.alert' is displayed.</msg>
+<status status="PASS" starttime="20210513 10:10:14.680" endtime="20210513 10:10:14.692"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${alert}</arg>
+<arg>Authentication failed.</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20210513 10:10:14.707" level="INFO">Element 'css:.alert' contains text 'Authentication failed.'.</msg>
+<status status="PASS" starttime="20210513 10:10:14.692" endtime="20210513 10:10:14.707"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:14.659" endtime="20210513 10:10:14.708"/>
+</kw>
+<kw name="Zamknij przegladarke" library="SiteKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210513 10:10:14.708" endtime="20210513 10:10:14.766"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:14.708" endtime="20210513 10:10:14.766"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:06.131" endtime="20210513 10:10:14.766"/>
+</test>
+<test id="s1-t3" name="TC_03 - Sparwdzenie czy użytkownik jest wylogowany">
+<kw name="Otwórz przegladarke" library="SiteKeywords" type="SETUP">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210513 10:10:14.768" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210513 10:10:14.768" endtime="20210513 10:10:20.799"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210513 10:10:20.799" endtime="20210513 10:10:20.902"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:14.767" endtime="20210513 10:10:20.902"/>
+</kw>
+<kw name="Przejdz do strony logowania" library="SiteKeywords">
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${retrive_pass}</arg>
+<arg>${login_btn}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20210512 15:14:19.440" level="INFO">Clicking element 'css:.button-medium[type='submit'] &gt; span'.</msg>
-<status status="PASS" starttime="20210512 15:14:19.440" endtime="20210512 15:14:20.645"/>
+<msg timestamp="20210513 10:10:20.903" level="INFO">Clicking element 'css:.login'.</msg>
+<status status="PASS" starttime="20210513 10:10:20.903" endtime="20210513 10:10:23.469"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:19.439" endtime="20210512 15:14:20.645"/>
+<status status="PASS" starttime="20210513 10:10:20.902" endtime="20210513 10:10:23.470"/>
+</kw>
+<kw name="Wpisz adres email" library="SiteKeywords">
+<arg>${email_field}</arg>
+<arg>${user_email}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<arg>${user_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:23.471" level="INFO">Typing text 'user+test@example.com' into text field 'css:#email'.</msg>
+<status status="PASS" starttime="20210513 10:10:23.470" endtime="20210513 10:10:23.545"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:23.470" endtime="20210513 10:10:23.545"/>
+</kw>
+<kw name="Wpisz haslo" library="SiteKeywords">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${pass_field}</arg>
+<arg>${user_pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:23.546" level="INFO">Typing text 'pas123456' into text field 'css:#passwd'.</msg>
+<status status="PASS" starttime="20210513 10:10:23.546" endtime="20210513 10:10:23.619"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:23.545" endtime="20210513 10:10:23.619"/>
+</kw>
+<kw name="Nacisnij przycisk Sign In" library="SiteKeywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${submit_login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:23.620" level="INFO">Clicking button 'css:#SubmitLogin'.</msg>
+<status status="PASS" starttime="20210513 10:10:23.620" endtime="20210513 10:10:28.126"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:23.620" endtime="20210513 10:10:28.126"/>
+</kw>
+<kw name="Nacisnij przycisk Sign Out" library="SiteKeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sign_out}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:10:28.126" endtime="20210513 10:10:28.149"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sign_out}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:28.149" level="INFO">Clicking element 'css:.logout'.</msg>
+<status status="PASS" starttime="20210513 10:10:28.149" endtime="20210513 10:10:30.793"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:28.126" endtime="20210513 10:10:30.793"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20210513 10:10:35.794" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210513 10:10:30.794" endtime="20210513 10:10:35.794"/>
+</kw>
+<kw name="Sprawdz czy uzytkownik zostal wylogowany" library="SiteKeywords">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${my_account}</arg>
+<arg>AUTHENTICATION</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20210513 10:10:35.815" level="INFO">Element 'css:.page-heading' contains text 'AUTHENTICATION'.</msg>
+<status status="PASS" starttime="20210513 10:10:35.795" endtime="20210513 10:10:35.815"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:35.794" endtime="20210513 10:10:35.815"/>
+</kw>
+<kw name="Zamknij przegladarke" library="SiteKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210513 10:10:35.816" endtime="20210513 10:10:35.873"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:35.815" endtime="20210513 10:10:35.874"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:14.767" endtime="20210513 10:10:35.874"/>
+</test>
+<test id="s1-t4" name="TC_04 - Sprawdź, czy nie wypełnienie obowiązkowych pol doprowadzi do błędu walidacji">
+<kw name="Otwórz przegladarke" library="SiteKeywords" type="SETUP">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210513 10:10:35.876" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210513 10:10:35.875" endtime="20210513 10:10:40.615"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210513 10:10:40.615" endtime="20210513 10:10:40.718"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:35.875" endtime="20210513 10:10:40.718"/>
+</kw>
+<kw name="Przejdz do strony rejestracji" library="SiteKeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:40.719" level="INFO">Clicking element 'css:.login'.</msg>
+<status status="PASS" starttime="20210513 10:10:40.719" endtime="20210513 10:10:40.756"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:40.718" endtime="20210513 10:10:40.757"/>
+</kw>
+<kw name="Wpisz adres email nowego uzytkownika" library="SiteKeywords">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_register}</arg>
+<arg>${mail}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:40.757" level="INFO">Typing text 'pGNdyQA@gmail.com' into text field 'css:#email_create'.</msg>
+<status status="PASS" starttime="20210513 10:10:40.757" endtime="20210513 10:10:45.194"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:40.757" endtime="20210513 10:10:45.194"/>
+</kw>
+<kw name="Potwierdz rejestracje" library="SiteKeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${submit_register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:45.195" level="INFO">Clicking element 'css:#SubmitCreate'.</msg>
+<status status="PASS" starttime="20210513 10:10:45.195" endtime="20210513 10:10:45.237"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:45.195" endtime="20210513 10:10:45.237"/>
+</kw>
+<kw name="Kliknij Register" library="SiteKeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${register_btn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:10:45.238" endtime="20210513 10:10:48.988"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${register_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:48.988" level="INFO">Clicking element 'css:#submitAccount'.</msg>
+<status status="PASS" starttime="20210513 10:10:48.988" endtime="20210513 10:10:52.649"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:45.238" endtime="20210513 10:10:52.649"/>
 </kw>
 <kw name="Sprawdz czy pojawił sie error" library="SiteKeywords">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${alert}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20210512 15:14:20.645" endtime="20210512 15:14:20.662"/>
+<status status="PASS" starttime="20210513 10:10:52.650" endtime="20210513 10:10:52.669"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${alert}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20210512 15:14:20.673" level="INFO">Element 'css:.alert' is displayed.</msg>
-<status status="PASS" starttime="20210512 15:14:20.663" endtime="20210512 15:14:20.673"/>
+<msg timestamp="20210513 10:10:52.680" level="INFO">Element 'css:.alert' is displayed.</msg>
+<status status="PASS" starttime="20210513 10:10:52.669" endtime="20210513 10:10:52.680"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:20.645" endtime="20210512 15:14:20.673"/>
+<status status="PASS" starttime="20210513 10:10:52.650" endtime="20210513 10:10:52.680"/>
 </kw>
-<status status="PASS" starttime="20210512 15:14:10.837" endtime="20210512 15:14:20.674"/>
+<kw name="Zamknij przegladarke" library="SiteKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210513 10:10:52.681" endtime="20210513 10:10:52.737"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:52.681" endtime="20210513 10:10:52.737"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:35.874" endtime="20210513 10:10:52.737"/>
 </test>
-<status status="PASS" starttime="20210512 15:14:10.685" endtime="20210512 15:14:20.675"/>
+<test id="s1-t5" name="TC_05 - Sprawdzenie funkcjonalnosci &quot;Forgot your password?&quot; dla niezarejestrowanego uzytkownika">
+<kw name="Otwórz przegladarke" library="SiteKeywords" type="SETUP">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210513 10:10:52.739" level="INFO">Opening browser 'chrome' to base url 'http://automationpractice.com/'.</msg>
+<status status="PASS" starttime="20210513 10:10:52.739" endtime="20210513 10:10:58.608"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210513 10:10:58.608" endtime="20210513 10:10:58.712"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:52.738" endtime="20210513 10:10:58.712"/>
+</kw>
+<kw name="Przejdz do strony rejestracji" library="SiteKeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:10:58.713" level="INFO">Clicking element 'css:.login'.</msg>
+<status status="PASS" starttime="20210513 10:10:58.713" endtime="20210513 10:11:01.135"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:58.712" endtime="20210513 10:11:01.135"/>
+</kw>
+<kw name="Kliknij forgot password" library="SiteKeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${forgot_pass}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:11:01.136" endtime="20210513 10:11:01.157"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${forgot_pass}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:11:01.157" level="INFO">Clicking element 'css:[title='Recover your forgotten password']'.</msg>
+<status status="PASS" starttime="20210513 10:11:01.157" endtime="20210513 10:11:03.258"/>
+</kw>
+<status status="PASS" starttime="20210513 10:11:01.135" endtime="20210513 10:11:03.258"/>
+</kw>
+<kw name="Wpisz bledny adres email" library="SiteKeywords">
+<arg>${email_field}</arg>
+<arg>${wrong_user_email}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:11:03.259" endtime="20210513 10:11:03.278"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_field}</arg>
+<arg>${wrong_user_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210513 10:11:03.279" level="INFO">Typing text 'wrong@ee.pl' into text field 'css:#email'.</msg>
+<status status="PASS" starttime="20210513 10:11:03.278" endtime="20210513 10:11:03.334"/>
+</kw>
+<status status="PASS" starttime="20210513 10:11:03.259" endtime="20210513 10:11:03.334"/>
+</kw>
+<kw name="Potwierdz odzyskanie hasla" library="SiteKeywords">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${retrive_pass}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20210513 10:11:03.334" level="INFO">Clicking element 'css:.button-medium[type='submit'] &gt; span'.</msg>
+<status status="PASS" starttime="20210513 10:11:03.334" endtime="20210513 10:11:05.097"/>
+</kw>
+<status status="PASS" starttime="20210513 10:11:03.334" endtime="20210513 10:11:05.097"/>
+</kw>
+<kw name="Sprawdz czy pojawił sie error" library="SiteKeywords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210513 10:11:05.097" endtime="20210513 10:11:05.115"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${alert}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20210513 10:11:05.125" level="INFO">Element 'css:.alert' is displayed.</msg>
+<status status="PASS" starttime="20210513 10:11:05.115" endtime="20210513 10:11:05.125"/>
+</kw>
+<status status="PASS" starttime="20210513 10:11:05.097" endtime="20210513 10:11:05.125"/>
+</kw>
+<kw name="Zamknij przegladarke" library="SiteKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210513 10:11:05.126" endtime="20210513 10:11:05.187"/>
+</kw>
+<status status="PASS" starttime="20210513 10:11:05.125" endtime="20210513 10:11:05.187"/>
+</kw>
+<status status="PASS" starttime="20210513 10:10:52.738" endtime="20210513 10:11:05.187"/>
+</test>
+<status status="PASS" starttime="20210513 10:09:53.596" endtime="20210513 10:11:05.188"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
 </suite>
 </statistics>
 <errors>
