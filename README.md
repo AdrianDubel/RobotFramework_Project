@@ -6,8 +6,7 @@ Testy napisane z użyciem RobotFramework oraz dedykowanej biblioteki Selenium. T
 
 W folderze "Dokumenty" znajduje się dokumentacja testów automatycznych oraz przypadki testowe, które zostały zautomatyzowane.
 
-
-
+W folderze "TestsCases" znajdziemy raport z testów.
 
 ## Instalacja
 
