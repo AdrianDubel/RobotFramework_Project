@@ -8,7 +8,23 @@ W folderze "Dokumenty" znajduje się dokumentacja testów automatycznych oraz pr
 
 W folderze "TestsCases" znajdziemy raport z testów.
 
-## Instalacja
+### Wersja oprogramowania
+
+```Chrome - Version 89.0.4389.82```
+
+```Selenium - Version 3.141.0```
+
+```Python - Version 3.8.5```
+
+```Robotframework - Version 4.0.1```
+
+```Robotframewrok-seleniumlibrary - Version 5.1.3```
+
+```System - Ubuntu 20.04.1``` 
+
+
+
+### Instalacja
 
 ```bash
 pip install robotframework
@@ -18,7 +34,6 @@ pip install robotframework
 pip install robotframework-seleniumlibrary
 ```
 
-Do uruchomienia projektu polecam PyCharm.
 
 ## Uruchomienie
 
