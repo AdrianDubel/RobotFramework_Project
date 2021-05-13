@@ -1,14 +1,7 @@
 *** Settings ***
-Library   SeleniumLibrary
+Metadata  Author   Adrian Dubel <adrian.dubel88@gmail.com>
 Resource   ../Resources/SiteKeywords.robot
 Suite Setup   Prepare Env
-
-*** Variables ***
-${Url}   http://automationpractice.com/
-${Browser}   chrome
-${user_email}   user+test@example.com
-${user_pass}   pas123456
-${wrong_user_email}   wrong@ee.pl
 
 *** Test Cases ***
 TC_01 - Logowanie z poprawnymi danymi
@@ -36,7 +29,6 @@ TC_03 - Sprawdzenie czy użytkownik jest wylogowany
     Wpisz haslo   ${pass_field}   ${user_pass}
     Nacisnij przycisk Sign In
     Nacisnij przycisk Sign Out
-    Sleep    5
     Sprawdz czy uzytkownik zostal wylogowany
     [Teardown]   Zamknij przegladarke
 
