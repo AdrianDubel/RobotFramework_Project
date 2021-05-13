@@ -19,7 +19,7 @@ pip install robotframework
 pip install robotframework-seleniumlibrary
 ```
 
-Do uruchomienia projektu polecam polecam PyCharm.
+Do uruchomienia projektu polecam PyCharm.
 
 ## Uruchomienie
 
